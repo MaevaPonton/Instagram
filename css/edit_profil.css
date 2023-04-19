@@ -17,12 +17,14 @@ input[type=file], textarea, input[type=date] {
     resize: vertical;
   }
 
-  a:link 
-  { 
-     text-decoration:none; 
-  } 
+ 
 
-  button{
+  button:hover{
+    background-color:  grey;
+  }
+  
+
+  .deconnexion {
     width:fit-content;
     margin:20px auto;
     padding:10px 20px;
@@ -30,18 +32,17 @@ input[type=file], textarea, input[type=date] {
     border: none;
     border-radius: 20px;
     font-weight: 700;
-    color:white;
-    background-color: #248277;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 1.1em;
+    background-color: black;
     cursor: pointer;
     transition-duration: 0.25s;
-    height: 5rem; 
- 
-   
   }
-  button:hover{
-    background-color: #036666;
+
+
+  a{
+    text-decoration: none;
+    color:white;
+    font-size: 0.9rem;
+    font-family: 'Ubuntu', sans-serif;
   }
 
   label {
@@ -54,30 +55,43 @@ input[type=file], textarea, input[type=date] {
   
   
   input[type=submit] {
-    background-color: #248277;
-    color: white;
+    background-color:gray ;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
   }
   
   input[type=submit]:hover {
-    background-color: #036666;
+    background-color: rgb(97, 92, 90);
   }
   
   .modification{
     /* Ajouter box-sizing */
     box-sizing : border-box;
     border-radius:5px;
-      background-color:#212529;
+    background-color:#212529;
     color: white;
     padding:20px;
     width: 100%;
-    
+   
+  
+  
+ 
     /* redéfinition 400 + 2*20 */
     max-width: 440px;
     margin: 100px auto;
   }
 
+
+ 
+
+  .profile-user-name {
+    text-align: center;
+    justify-content: center;
+  }
   

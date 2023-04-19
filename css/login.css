@@ -77,15 +77,15 @@ button{
   border: none;
   border-radius: 20px;
   font-weight: 700;
-  color:white;
-  background-color: #248277;
+  color: black;
+  background-color: white;
 
   font-size: 1.1em;
   cursor: pointer;
   transition-duration: 0.25s;
 }
 button:hover{
-  background-color: #036666;
+  background-color: gray;
 }
 span{
   display: flex;
@@ -94,11 +94,61 @@ span{
 }
 a{
   text-decoration: none;
-  color:#99e2b4;
+  color:black;
 }
 span>span>a{
   margin:0px 5px
 }
-a:hover{
-  color: #06d6a0;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+
+.logo {
+  width: 70%;
+  height: 50%;
+}
+
+#container {
+  max-width: 500px; /* largeur maximale du formulaire */
+  width: 100%;
+  margin-top: 20px;
+  box-shadow: 1px 2px 71px -6px rgba(0,0,0,0.67);
+  background-color: #212529;
+  padding: 50px 20px;
+  border-radius: 10px;
+  margin-bottom: 10%;
+}
+
+/* Média requêtes pour les écrans de petite taille */
+@media (max-width: 767px) {
+  .container {
+    justify-content: center;
+  }
+
+  #login-form {
+    margin-top: 0; /* supprimer la marge supérieure pour le formulaire */
+    border-radius: 0; /* supprimer la bordure arrondie pour le formulaire */
+    padding: 20px; /* réduire l'espacement intérieur pour le formulaire */
+  }
+
+  .logo {
+    width: auto;
+  }
+
+  #Heading {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+
+
+

@@ -1,39 +1,101 @@
-
-/* Base Styles */
-
-:root {
-    font-size: 10px;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: "Open Sans", Arial, sans-serif;
-    min-height: 100vh;
-    background-color: #343a40;
-    color: white;
-    padding-bottom: 3rem;
-  }
-
- 
-.actu {
-  display: flex;
-  justify-items: end;
-
+body {
+  background-color: #343a40;
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
 }
 
-  img {
-    display: block;
-    object-fit: cover;
-    border: 3px solid white;
+
+
+  #profil {
+    display: flex;
+    flex-direction: column; /* permet de placer les éléments verticalement */
+    align-items: center; /* centre les éléments horizontalement */
+    justify-content: center; /* centre les éléments verticalement */
+    height: 100vh;
+    }
+  
+    .publication {
+      display: flex;
+      flex-direction: column; /* permet de placer les éléments verticalement */
+      align-items: center; /* centre les éléments horizontalement */
+      justify-content: center; /* centre les éléments verticalement */
+    }
+ 
+
+
+    .mapubli {
+      border: 3px solid white;
+      padding: 10px;
+      text-align: center;
+      margin-bottom: 30px;
+      background-image: url('../images/fondmetal.jpg');
+      background-size: cover;
+      width: 100%;
+    }
+
+  input{
+    padding:10px;
+    border-top-right-radius: 10px;
+    height: 50px;
+    border: none;
+    background-color: #6c757d;
+    border-bottom-right-radius:10px;
+    font-size:19.2px;
+    color:#f8f9fa;
+  }
+
+  
+
+  input:focus{
+    outline: none;
+    background-color: none;
+  }
+
+
+  input::placeholder{
+    color:#f8f9fa;
+    font-size: 19.2px;
+  
+  }
+
+  /* Gallery Section */
+  .container {
+    display: flex;
   }
   
+  .gallery {
+    flex: 1;
+  }
   
-  button{
+  .image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+  }
+  
+
+  
+  /* pour que toutes les images soient de la même taille */
+
+  .image-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+   
+  }
+
+  .imageprofil{
+    width: 300px;
+    height: 300px;
+    border: 4px solid black;
+    object-fit: cover;
+    margin-right: 20px;
+    
+  }
+  
+ /* boutons en haut */
+ 
+    .buttondeconnexion {
       width:fit-content;
       margin:20px auto;
       padding:10px 20px;
@@ -42,217 +104,113 @@
       border-radius: 20px;
       font-weight: 700;
       color:white;
-      background-color: #248277;
+      background-color: black;
       font-family: 'Ubuntu', sans-serif;
-      font-size: 1.1em;
+      font-size: 1.5em;
       cursor: pointer;
       transition-duration: 0.25s;
     }
+  
+    .buttonprofil {
+      width:fit-content;
+      margin:20px auto;
+      padding:10px 20px;
+      outline: none;
+      border: none;
+      border-radius: 20px;
+      font-weight: 700;
+      color:white;
+      background-color: black;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 1.5em;
+      cursor: pointer;
+      transition-duration: 0.25s;
+    }
+
+    .buttonmodif {
+      width:fit-content;
+      margin:20px auto;
+      padding:10px 20px;
+      outline: none;
+      border: none;
+      border-radius: 20px;
+      font-weight: 700;
+      color:white;
+      background-color: black;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 1.5em;
+      cursor: pointer;
+      transition-duration: 0.25s;
+    }
+
+    
     button:hover{
-      background-color: #036666;
+      background-color: grey
     }
   
+  
+
+    a{
+      text-decoration: none;
+      color:white;
+    }
+  
+  
+    .mapubli {
+      border: 3px solid white;
+      padding: 10px;
+      text-align: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      background-image: url('../images/fondmetal.jpg');
+      background-size: cover;
+    }
+  
+    .publi {
+      font-size: 30px;
+      text-align: center;
+      justify-content: center;
+    }
     
-  .container {
-    max-width: 93.5rem;
+    .publication-image {
+      border: 2px solid white;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
     
-    padding: 0 2rem;
-  }
-
-  
-  .btn {
-    display: inline-block;
-    font: inherit;
-    background: none;
-    border: none;
-    color: inherit;
-    padding: 0;
-    cursor: pointer;
-  }
-  
-  .btn:focus {
-    outline: 0.5rem auto #4d90fe;
-  }
-  
-  .visually-hidden {
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-  }
-  
-  /* Profile Section */
-  
-  .profile {
-    padding: 5rem; 
-    justify-content: left;
-    text-align: center;
-    color: white;
+    .pseudoname {
+      width: 100px;
+    }
     
-  }
-
-  .baniere {
-    background-color: #212529;
+    .comments {
+      text-align: center;
+      justify-content: center;
+    }
     
-  }
-  
-  .profile::after {
-    content: "";
-    display: block;
-    clear: both;
-  } 
-
-
-  a{
-    text-decoration: none;
-    color:#99e2b4;
-    font-size: 2rem;
-  }
-  
-  a:hover{
-    color: #06d6a0;
-  }
-  
-  
-  .profile-image {
-    float: left;
-    width: calc(33.333% - 1rem);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-  }
-  
-  .profile-image img {
-   border-radius: 50%;
-   width: 200px;
-   height : 200px;
-   
-  }
-  
-  .profile-user-settings, 
-  .profile-stats,
-  .profile-bio {
-    float: left; 
-    width: calc(66.666% - 2rem);
-  } 
-  
-  .profile-user-settings {
-    margin-top: 1.1rem;
-  }
-  
-  .profile-user-name {
-    /* display: inline-block;  */
-    font-size: 50px;
-    font-weight: 300;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-transform: capitalize;
-    text-align: center;
-  }
-
+    .center {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .publiintro {
+      border: 3px solid black;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      background-image: url(../images/fondmetal.jpg);
+      margin-bottom: 10px;
+      margin-top: 5px;
+    }
  
-  .profile-edit-btn {
-    font-size: 1.4rem;
-    line-height: 1.8;
-    border: 0.1rem solid #dbdbdb;
-    border-radius: 0.3rem;
-    padding: 0 2.4rem;
-    text-align: center;
-    justify-content: center;
-  }
-  
-  .profile-settings-btn {
-    font-size: 2rem;
-    margin-left: 1rem;
-  }
-  
-  .profile-bio {
-    font-size: 2rem;
-    font-weight: 400;
-    line-height: 1.5;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .profile-real-name,
-  .profile-stat-count,
-  .profile-edit-btn {
-    font-weight: 600;
-  }
-
-
-
-  /* Commentaires de la photo */
-  
-  h3 {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .comments {
-    justify-content: center;
-    text-align: center;
-  }
-
-
-
-  /* Gallery Section */
-  .container {
-    display: flex;
-  }
   
   
-  
-  .image-grid {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  /* pour que toutes les images soient de la même taille */
-
-  .image-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 7rem;
-  }
-  
- .imagehomepage {
-    width: 600px;
-    height: 600px;
-    object-fit: cover;
-    margin-right: 20px;
-  }
-
-  .posthomepage {
-    
-    font-size: 30px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-  }
-
-  /* fin */
-
-  main {
-   display: flex;
-    text-align: center;
-    margin-left: 500px;
-    margin-top: 100px;
-    justify-content: center;
-    align-items: center;
-   
-  
-  }
-  
-  .commentaires {
-    
-    margin-left: 20px;
-    
+  h1 {
+    font-size: 25px;
   }
   
 
-  
   /* Loader */
   
   .loader {
@@ -265,164 +223,59 @@
     animation: loader 500ms linear infinite;
   }
   
-  /* Media Query */
-  
-  @media screen and (max-width: 40rem) {
-    .profile {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 4rem 0;
-    }
-  
-    .profile::after {
-        display: none;
-    }
-  
-    .profile-image,
-    .profile-user-settings,
-    .profile-bio,
-    .profile-stats {
-        float: none;
-        width: auto;
-    }
-  
-    .profile-image img {
-        width: 7.7rem;
-    }
-  
-    .profile-user-settings {
-        flex-basis: calc(100% - 10.7rem);
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 1rem;
-    }
-  
-    .profile-user-name {
-        font-size: 2.2rem;
-    }
-  
-    .profile-edit-btn {
-        order: 1;
-        padding: 0;
-        text-align: center;
-        margin-top: 1rem;
-        font-size: 2rem;
-    }
-  
-    .profile-edit-btn {
-        margin-left: 0;
-    }
-  
-    .profile-bio {
-        font-size: 1.4rem;
-        margin-top: 1.5rem;
-    }
-  
-    .profile-edit-btn,
-    .profile-bio,
-    .profile-stats {
-        flex-basis: 100%;
-    }
-  
-    .profile-stats {
-        order: 1;
-        margin-top: 1.5rem;
-    }
-  
-    .profile-stats ul {
-        display: flex;
-        text-align: center;
-        padding: 1.2rem 0;
-        border-top: 0.1rem solid #dadada;
-        border-bottom: 0.1rem solid #dadada;
-    }
-  
-    .profile-stats li {
-        font-size: 1.4rem;
-        
-        margin: 0;
-    }
-  
-    .profile-stat-count {
-        display: block;
-    }
-  }
-  
-  /* Spinner Animation */
   
   @keyframes loader {
     to {
         transform: rotate(360deg);
     }
   }
-  
-  /*
-  
-  The following code will only run if your browser supports CSS grid.
-  
-  Remove or comment-out the code block below to see how the browser will fall-back to flexbox & floated styling. 
-  
-  */
-  
-  @supports (display: grid) {
-    .profile {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        grid-template-rows: repeat(3, auto);
-        grid-column-gap: 3rem;
-        align-items: center;
+
+  @media only screen and (max-width: 767px) {
+ 
+    .imageprofil {
+      width: 200px;
+      height: 200px;
     }
-  
-    .profile-image {
-        grid-row: 1 / -1;
-    }
-  
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-        grid-gap: 2rem;
-    }
-  
-    .profile-image,
-    .profile-user-settings,
-    .profile-stats,
-    .profile-bio,
-    .gallery-item,
-    .gallery {
-        width: auto;
-        margin: 0;
-    }
-  
-    @media (max-width: 40rem) {
-        .profile {
-            grid-template-columns: auto 1fr;
-            grid-row-gap: 1.5rem;
-        }
-  
-        .profile-image {
-            grid-row: 1 / 2;
-        }
-  
-        .profile-user-settings {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            grid-gap: 1rem;
-        }
-  
-        .profile-edit-btn,
-        .profile-stats,
-        .profile-bio {
-            grid-column: 1 / -1;
-        }
-  
-        .profile-user-settings,
-        .profile-edit-btn,
-        .profile-settings-btn,
-        .profile-bio,
-        .profile-stats {
-            margin: 0;
-        }
+    .buttondeconnexion, .buttonprofil, .buttonmodif {
+      font-size: 1.5em;
+      padding: 8px 16px;
     }
   }
+  
+  @media only screen and (max-width: 575px) {
+
+    .imageprofil {
+      width: 20vw;
+      height: 150px;
+    }
+    .buttondeconnexion, .buttonprofil, .buttonmodif {
+      font-size: 1.5em;
+      padding: 6px 12px;
+    }
+    
+  }
+  
+  @media only screen and (max-width: 375px) {
+  
+    .imageprofil {
+      width: 100px;
+      height: 100px;
+    }
+    .buttondeconnexion, .buttonprofil, .buttonmodif {
+      font-size: 0.7em;
+      padding: 4px 8px;
+    }
+  }
+  
+  
+  
+  
+
+
+  
+  
+    
+  
+   
 
  

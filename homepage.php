@@ -20,26 +20,38 @@ include("header2.php");
     <title></title>
 </head>
  
-<body id="body-el">
+<body >
+
+<div id="body-el">
   
     
 
   
 
 <div class="publication">
-	<?php echo $_SESSION["pseudo"]; ?> <h2>Publiez quelques chose :</h2> 
-    <form method='post' action='postimage.php'
-        enctype='multipart/form-data'>
-        <input type='file' name='files[]' multiple />
-				<textarea name="publication" rows="5" cols="35" placeholder="Ecrivez"></textarea><br>
-        <input type='submit' value='Submit' name='submit' />
+
+    <div class ="mapubli">
+	<h1><?php echo $_SESSION["pseudo"]; ?> , partage une photo avec tes amis : </h1>
+    <br>
+    <br>
+    <form method='post' action='postimage.php' enctype='multipart/form-data'>
+        <textarea name="publication" rows="3" cols="60" placeholder="Donne un titre à ta photo !"></textarea>
+        <br>
+        <br>
+        <input class="input-file" type='file' name='files[]' multiple />
+        <br>
+        <br>
+        <input class="input-submit" type='submit' value='Submit' name='submit' />
+        <br>
+        <br>
     </form>
+    </div>
  
     
 		<?php
 
 // Get images from the database
-$query = $pdo->query("SELECT * FROM images ORDER BY id ASC");
+$query = $pdo->query("SELECT * FROM images ORDER BY id DESC");
 if ($query->rowCount() > 0) {
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
         $imageURL = $row["image"];
@@ -48,21 +60,21 @@ if ($query->rowCount() > 0) {
         $likes = $row['likes'];
         $dislikes = $row['dislikes'];
 ?>
-        <img class="imagehomepage" src="<?php echo $imageURL; ?>" alt="" />
-        <p>Publier par : <?php echo $author; ?> <div class="posthomepage"> <?php echo $publication; ?> </div></p>
-
-        
-
-        
-
-      
-
+    <div class='publication-image'>
+        <div class = 'publiintro'>
+            <p class='publi'>Photo publiée par : <?php echo $author; ?><br><div class="posthomepage"> Titre : <?php echo $publication; ?> </div></p>
+        </div>
+            <img class="imagehomepage " src="<?php echo $imageURL; ?>" alt="" />
+        <br>
         <form method='post' action='formcomment.php' class='comment-form'>
             <input type='hidden' name='image_id' value='<?php echo $row["id"]; ?>' />
-            <input type='text' name='pseudo' value='<?php echo $_SESSION["pseudo"]; ?>' required />
-            <textarea name='comment' rows='2' cols='35' placeholder='Votre commentaire' required></textarea>
-            <input type='submit' value='Envoyer' name='submit_comment' />
+            <input class='pseudoname'type='hidden' name='pseudo' value='<?php echo $_SESSION["pseudo"]; ?>' >
+            <textarea class ='comments' name='comment' rows='5' cols='80' placeholder='Donne nous ton avis !' required></textarea>
+            <br>
+            <input class='buttoncomment center' type='submit' value='Envoyer' name='submit_comment' />
+
         </form>
+        
         
         <?php
         // Récupérer les commentaires pour cette image depuis la base de données
@@ -74,7 +86,7 @@ if ($query->rowCount() > 0) {
 <!-- ///////////////// -->
 
 <!-- Partie des likes et dislikes : -->
-<div class="like-buttons">
+        <div class="like-buttons">
         <?php if (isset($_SESSION['pseudo'])) {
                 // Récupération du like et du dislike de l'utilisateur pour cette image
                 $stmt = $pdo->prepare('SELECT * FROM images WHERE pseudo = :pseudo AND id = :image_id');
@@ -86,9 +98,10 @@ if ($query->rowCount() > 0) {
                     if (!$vote) {
                         echo '<form method="post" action="like.php">';
                         echo '<input type="hidden" name="image_id" value="' . $row['id'] . '">';
-                        echo '<button class="button-like like-size center-text" type="submit" name="like" >' . $likes . '</button>';
+                        echo '<button class="bouton-like like-size center-text my-class-like" type="submit" name="like" >' . $likes . '</button>';
+
                     } else {
-                        echo '<button class="button-like like-size center-text disabled" disabled>' . $likes . '</button>';
+                        echo '<button class="bouton-like like-size center-text disabled" disabled>' . $likes . '</button>';
                     }
                     echo '</form>';
                 }
@@ -98,9 +111,9 @@ if ($query->rowCount() > 0) {
                     if (!$vote) {
                     echo '<form method="post" action="like.php">';
                     echo '<input type="hidden" name="image_id" value="' . $row['id'] . '">';
-                    echo '<button class="button-dislike dislike-size center-text" type="submit" name="dislike"> ' . $dislikes . '</button>';
+                    echo '<button class="bouton-dislike dislike-size center-text my-class-dislike" type="submit" name="dislike"> ' . $dislikes . '</button>';
                     } else {
-                        echo '<button class="button-dislike dislike-size center-text disabled" disabled>' . $dislikes . '</button>';
+                        echo '<button class="bouton-dislike dislike-size center-text disabled" disabled>' . $dislikes . '</button>';
                     }  
                     echo '</form>';
                 } 
@@ -108,27 +121,19 @@ if ($query->rowCount() > 0) {
                 // Affichage d'un message invitant l'utilisateur à se connecter s'il n'est pas connecté
                 echo 'Connectez-vous pour voter';
             }
+           
 ?>
+ </div>
 
 
 
-
-
-
-
-
-
-
-<!-- //////////////////////// -->
-        <!-- <a href="#" onclick="myFunction('1')">Voir les commentaires</a> -->
         <div id="comm">
 
         <?php
         // Afficher les commentaires
         foreach ($comments as $comment) {
-            echo "<div id='comment '>";
-            echo "<span class='commentauthor' >"  . $comment['author'] . " :  </span>";
-            echo "<span class='commenttext'>" . $comment['comment_text'] . "</span>";
+            echo "<div class='commentext '>";
+            echo "<span class='commentauthor' >"  . $comment['author'] . ":  </span>"."<span class='commenttext'>" . $comment['comment_text'] . "</span>" ;
             echo "</div>";
         }
         ?>
@@ -139,12 +144,12 @@ if ($query->rowCount() > 0) {
     echo "<p>No image(s) found...</p>";
 }
 ?>
-
+</div>
 </div>
 
 
 
-<script src="./js/comm.js"></script>
+</div>
 </body>
  
 </html>

@@ -52,7 +52,7 @@ if (isset($_POST['like']) || isset($_POST['dislike'])) {
      $result = $stmt->fetch();
      $dislikes = intval($result['dislikes']);
  
-     // Incrémentez le nombre de likes et mettez à jour la base de données
+     // Incrémentez le nombre de dislikes et mettez à jour la base de données
      $dislikes++;
      $sql = "UPDATE images SET dislikes = ? WHERE id = ?";
      $stmt = $pdo->prepare($sql);

@@ -13,29 +13,37 @@
   body {
     font-family: "Open Sans", Arial, sans-serif;
     min-height: 100vh;
-    background-color: #343a40;
+    background-color: #9CAEBC;
     color: #262626;
     padding-bottom: 3rem;
   }
 
   header {
     position: absolute; 
-    
     width: 120%; 
   } 
 
+  #logo {
+    width: 20%;
+    height: 30%;
+    position: absolute;
+    top: 0;
+    left: 39%;
+  }
 
-  img {
-    display: block;
-    object-fit: cover;
-    border: 3px solid white;
+  .profile {
+    position: relative;
   }
   
-  .container {
-    max-width: 93.5rem;
-    
-    padding: 0 2rem;
+  
+
+  img {
+    display: block; 
+    object-fit: cover;
+
   }
+  
+ 
 
   main {
     margin-left: 500px;
@@ -54,60 +62,48 @@
     border-radius: 20px;
     font-weight: 700;
     color:white;
-    background-color: #248277;
+    background-color: black;
     font-family: 'Ubuntu', sans-serif;
     font-size: 1.1em;
     cursor: pointer;
     transition-duration: 0.25s;
     height: 5rem;
   }
+
+
   button:hover{
-    background-color: #036666;
+    background-color:  grey;
   }
   
-  .lien {
-   
-    margin:20px;
-    padding:10px 20px;
-    border-radius: 20px;
-    font-weight: 700;
-    color:white;
-    background-color: #248277;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition-duration: 0.25s;
-    height: 5rem;
-   
-  }
-  .lien:hover {
-  background-color: #036666;
-  }
-
+  
 
 
   
-  .btn:focus {
-    outline: 0.5rem auto #4d90fe;
-  }
-  
-  .visually-hidden {
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-  }
+
+ 
   
   /* Profile Section */
   
-  .profile {
+   .profile {
     padding: 5rem; 
-    justify-content: left;
+    justify-content: center;
     text-align: center;
     color: white;
-    
+    background-image: url("../images/fondmetal.jpg");
+    margin-bottom: 30px;
   }
+
+  .profile {
+    position: relative;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 80%;
+  }
+  
+
   
   .profile::after {
     content: "";
@@ -117,7 +113,6 @@
   
   .profile-image {
     float: left;
-    width: calc(33.333% - 1rem);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,47 +121,26 @@
   
   .profile-image img {
    border-radius: 50%;
-   width: 200px;
-   height : 200px;
+   width: 15vw;
+   height : 15vw;
    
   }
   
-  .profile-user-settings, 
-  .profile-stats,
+
   .profile-bio {
-    float: left; 
+    float: center; 
     width: calc(66.666% - 2rem);
   } 
   
-  .profile-user-settings {
-    margin-top: 1.1rem;
-  }
   
   .profile-user-name {
-    /* display: inline-block;  */
-    font-size: 50px;
-    font-weight: 300;
+   
+    font-size: 40px;
+    font-weight: 200;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-transform: capitalize;
-    text-align: center;
   }
 
  
-  .profile-edit-btn {
-    font-size: 1.4rem;
-    line-height: 1.8;
-    border: 0.1rem solid #dbdbdb;
-    border-radius: 0.3rem;
-    padding: 0 2.4rem;
-    text-align: center;
-    justify-content: center;
-  }
-  
-  .profile-settings-btn {
-    font-size: 2rem;
-    margin-left: 1rem;
-  }
-  
   .profile-bio {
     font-size: 2rem;
     font-weight: 400;
@@ -175,11 +149,7 @@
     text-align: center;
   }
   
-  .profile-real-name,
-  .profile-stat-count,
-  .profile-edit-btn {
-    font-weight: 600;
-  }
+
 
 
 
@@ -233,3 +203,96 @@
     font-size: 30px;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
+
+  h4 {
+   padding-left: 50%;
+  }
+
+  @media only screen and (max-width: 768px) {
+    body {
+      font-size: 6px;
+    }
+
+    .profile-image img {
+      border-radius: 50%;
+      width: 20vw;
+      height : 20vw;
+      
+     }
+    
+    #logo {
+      width: 30%;
+      height: 20%;
+      position: relative;
+      top: 0;
+      left: 35%;
+    }
+    
+    
+    .profile-user-name {
+      font-size: 2rem;
+    }
+
+    .profile-bio {
+      font-size: 1.5rem;
+      width: 80%;
+    }
+
+   
+
+    
+    .imagehomepage {
+      height: 200px;
+      margin-bottom: 5px;
+    }
+    
+    .posthomepage {
+      font-size: 18px;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    body {
+      font-size: 6px;
+    }
+
+    .profile-image img {
+      border-radius: 50%;
+      width: 25vw;
+      height : 25vw;
+      
+     }
+    
+    #logo {
+      width: 30%;
+      height: 20%;
+      position: relative;
+      top: 0;
+      left: 35%;
+    }
+    
+    
+    .profile-user-name {
+      font-size: 2.5rem;
+   
+    }
+    
+    .profile-bio {
+      font-size: 1.7rem;
+    }
+
+    h4 {
+      padding-left: 0;
+    }
+
+    
+    .imagehomepage {
+      height: 200px;
+      margin-bottom: 5px;
+    }
+    
+    .posthomepage {
+      font-size: 18px;
+    }
+  }
+  

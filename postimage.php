@@ -50,6 +50,6 @@ if(isset($_POST['submit'])) {
         }
     }
      
-    echo '<script type="text/javascript"> window.location="homepage.php";</script>';
+    echo '<script type="text/javascript"> window.location="profil.php";</script>';
 }
 

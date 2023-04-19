@@ -34,12 +34,14 @@ if (isset($_SESSION["pseudo"])) {
   $stmt = $pdo->prepare("SELECT avatar FROM utilisateurs WHERE pseudo = :pseudo");
   $stmt->execute(array(':pseudo' => $_SESSION["pseudo"]));
   $row = $stmt->fetch(PDO::FETCH_ASSOC);
-  if ($row) {
+
+  if ($row && !empty($row["avatar"])) { // Vérifiez si l'image stockée n'est pas vide
     $imageAvatar = $row["avatar"];
   } else {
-    $imageAvatar = ""; // mettre une valeur par défaut si l'utilisateur n'a pas d'avatar
+    $imageAvatar = "../images/avatar-defaut.jpg";
   }
 }
+
 
 
 // importer la description de l'utilisateur et la changer automatiquement en cas de modification dans le formulaire edit_profil :
@@ -47,10 +49,10 @@ if (isset($_SESSION["pseudo"])) {
 $stmt = $pdo->prepare("SELECT description FROM utilisateurs WHERE pseudo = :pseudo");
 $stmt->execute(array(':pseudo' => $_SESSION["pseudo"]));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-if ($row) {
+if ($row && !empty($row["description"])) {
   $description = $row["description"];
 } else {
-  $description = ""; // mettre une valeur par défaut si l'utilisateur n'a pas de description
+  $description = "Ajoute une description de toi !";
 }
 
 
@@ -67,7 +69,7 @@ if ($row) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Insta'Métal</title>
   <link rel="stylesheet" href="./css/header2.css">
 
 </head>
@@ -75,49 +77,39 @@ if ($row) {
 <body>
 
 
-  
-
-    
-    
-
-    <div class="container">
-
-      <div class="lien">
-        <a href="/logout.php">Deconnexion</a> 
-      </div>
-      
-      <div class="lien">
-        <a href="/homepage.php">Accueil</a>
-      </div>
-
-      <div class="profile">
-
-        <div class="profile-image">
-          <?php
-          $image_path = "./avatars/";
-          $avatar = isset($_SESSION["avatar"]) ? $_SESSION["avatar"] : "";
-          if (file_exists($image_path . $imageAvatar)) {
-            echo '<img src="' . $image_path . $imageAvatar . '" alt="">';
-          } else {
-            echo "L'image n'existe pas";
-          }
-          ?>
-        </div>
 
 
-        <div class="profile-user-settings">
-    <h1 class="profile-user-name"><?php echo $_SESSION["pseudo"]; ?></h1>
-    <button onclick="window.location.href = './edit_profil.php'" class="btn profile-edit-btn">Modifier le profil</button>
+  <button class='buttondeconnexion'><a href="/logout.php">Deconnexion</a> </button>
+  <button class='buttonprofil'> <a href="/homepage.php">Retour au fil d'actualité</a></button>
+  <button class="buttonmodif"> <a href="/edit_profil.php">Modifier mon profil</a></button>
+
+
+
+  <div class="profile">
+
+
+    <div class="profile-image">
+      <?php
+      $image_path = "./avatars/";
+      $avatar = isset($_SESSION["avatar"]) ? $_SESSION["avatar"] : "";
+      if (file_exists($image_path . $imageAvatar)) {
+        echo '<img src="' . $image_path . $imageAvatar . '" alt="">';
+      } else {
+        echo "L'image n'existe pas";
+      }
+      ?>
     </div>
 
-        <div class="profile-bio">
-          <h4><?php echo $description; ?> </h4>
-        </div>
 
-      </div>
-
-
+    <div class="profile-bio">
+      <h4 class="profile-user-name"> Bienvenue sur ton profil,<br> <?php echo $_SESSION["pseudo"]; ?></h4>
+      <h4><?php echo $description; ?> </h4>
     </div>
+
+  </div>
+
+
+
 
 
 
